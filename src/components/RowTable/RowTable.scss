@@ -1,0 +1,31 @@
+.c-table {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    border: 1px solid purple;
+    transition: box-shadow 300ms ease-in-out; 
+}
+.c-table:active {
+    border: 1px solid var(--light);
+}
+.c-table:hover {
+    box-shadow: 0px 0px 5px var(--light);
+}
+
+.btn-add-course {
+    width: 30px;
+    height: 30px;
+    border: 1px solid green;
+    border-radius: 50%;
+    text-align: center;
+}
+.btn-add-course:active {
+    border: 1px solid red;
+    border-radius: 50%;
+}
+
+.table-course-name {
+    font-size: 1rem;
+}

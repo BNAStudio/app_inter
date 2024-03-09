@@ -1,0 +1,10 @@
+.c-courses {
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    width: 100%;
+    border: 1px solid red;
+    flex-wrap: wrap;
+    cursor: pointer;
+    row-gap: 10px;
+}

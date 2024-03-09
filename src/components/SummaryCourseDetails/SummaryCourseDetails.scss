@@ -1,0 +1,14 @@
+.c-courses-details {
+    display: flex;
+    flex: 2;
+    width: 100%;
+
+
+    border: 1px solid red;
+    height: max-content;
+    flex-wrap: wrap;
+    row-gap: 50px;
+
+    align-content: center;
+    // padding: 10px;
+}

@@ -1,0 +1,21 @@
+.c-amount-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+    max-width: 200px;
+}
+
+.amount-title,
+.amount-value {
+    width: 100%;
+    text-align: center;
+}
+
+.amount-title {
+    color: var(--complementary-hover);
+}
+
+.amount-value {
+    color: var(--light);
+}

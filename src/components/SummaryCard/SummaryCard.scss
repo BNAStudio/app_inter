@@ -1,0 +1,43 @@
+.c-summary-card {
+    display: flex;
+    flex: 2;
+    width: 100%;
+
+
+    border: 1px solid red;
+    height: max-content;
+    flex-wrap: wrap;
+    row-gap: 50px;
+
+    align-content: center;
+    padding: 10px;
+}
+
+.c-amount {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+
+    justify-content: space-evenly;
+    gap: 50px;
+}
+
+.c-current-courses {
+    text-align: center;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
+.current-courses-title {
+    width: 100%;
+    font-size: 1rem;
+    color: var(--contrast);
+}
+
+.c-tags {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}

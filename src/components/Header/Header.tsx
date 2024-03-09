@@ -3,8 +3,8 @@ import { getFormattedDate } from "../../utils/utilDate";
 
 const Header = () => {
 
-    const handleClick = () => {
-        console.log("from header click")
+    const handleClick = (currency: string) => {
+        console.log("from header click", currency)
     }
 
     return (
@@ -12,8 +12,8 @@ const Header = () => {
                 <p className='user-name'>User-Name</p>
                 <p className='current-date'>{getFormattedDate()}</p>
                 <div className='c-badge'>
-                    <button onClick={handleClick}>USD</button>
-                    <button onClick={handleClick}>EUR</button>
+                    <button onClick={() => handleClick("USD")}>USD</button>
+                    <button onClick={() => handleClick("EUR")}>EUR</button>
                 </div>
 
         </div>

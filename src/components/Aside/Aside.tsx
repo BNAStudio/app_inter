@@ -7,12 +7,10 @@ import './Aside.scss'
 
 const Aside = () => {
 
-  const handleOnClick = () => console.log("from Aside -> Details")
-
   return (
     <div className='aside c-aside'>
       <Profile userData={user} />
-      <BtnNav handleClick={handleOnClick}/>
+      <BtnNav />
       <Link className='link-text' to="/cart">Go to Cart</Link >
     </div>
   )

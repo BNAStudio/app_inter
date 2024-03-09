@@ -1,16 +1,23 @@
-import { coursesInfo } from '../../mocks/mockUser';
+
 import { FaCheck } from "react-icons/fa";
 import './RowTable.scss'
+import { RowTableProps } from "../../models/models";
 
-const RowTable = () => {
+const RowTable: React.FC<RowTableProps> = ({ courseInfo, onAddCourse }) => {
   return (
     <div className='c-table'>
-        {true && <FaCheck />}
-        <h3 className='table-course-name'>{coursesInfo.name}</h3>
-        <p className='table-course-name'>{coursesInfo.teacher}</p>
-        <button className='btn-add-course'>+</button>
+      {courseInfo.isSelected && <FaCheck />}
+      <h3 className='table-course-name'>{courseInfo.name}</h3>
+      <p className='table-course-name'>{courseInfo.teacher}</p>
+      <button 
+        className='btn-add-course'
+        onClick={() => onAddCourse(courseInfo.id)}
+        disabled={courseInfo.isSelected}
+      >
+        +
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default RowTable
+export default RowTable;

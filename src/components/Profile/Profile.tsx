@@ -1,7 +1,7 @@
-import { UserType } from '../../models/userModel';
-import { Avatar } from './Avatar';
+import { UserType } from '../../models/models';
+import { Avatar } from '../Avatar/Avatar';
 import './Profile.scss';
-import { user } from './mockUser';
+import { user } from '../../mocks/mockUser';
 
 
 
@@ -13,6 +13,7 @@ const Profile = ({ userData }: { userData: UserType }) => {
                 <h3 className='name-user'>{userData.name} {userData.lastname}</h3>
                 <p className='name-nationality'>{user.nationality}</p>
             </div>
+
         </div>
     )
 }

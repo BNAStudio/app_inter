@@ -1,0 +1,32 @@
+.c-profile {
+    border: 1px solid red;
+    width: max-content;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-wrap: wrap;
+}
+
+.c-img-user,
+.name-user,
+.name-nationality  {
+    width: 100%;
+    text-align: center;
+}
+
+.img-user {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+.name-user {
+    font-weight: 300;
+}
+.name-nationality {
+    
+    font-weight: 500;
+}

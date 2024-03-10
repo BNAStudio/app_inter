@@ -1,11 +1,11 @@
 import { useEffect, useReducer, useState } from "react";
-import { coursesReducer, initialState } from "../reducer/coursesReducer";
-import { Course, CoursesProviderProps, EnrolledCourse, SelectedCourse, UserType } from "../types/types";
 import { CoursesContext } from "./CoursesContext";
+import { coursesReducer, initialState } from "../reducer/coursesReducer";
 import { updateEnrolledStudents } from "../utils/updateEnrolledStudents";
+import { convertUserToStudent } from "../utils/convertToStuden";
+import { Course, CoursesProviderProps, EnrolledCourse, SelectedCourse, UserType } from "../types/types";
 import { userData } from "../mocks/mockUser";
 import { enrolledStudents } from "../mocks/mockEnrollStudent";
-import { convertUserToStudent } from "../utils/convertToStuden";
 
 export const CoursesProvider: React.FC<CoursesProviderProps> = ({ children }) => {
     const [enrolledCourses, dispatch] = useReducer(coursesReducer, initialState);
@@ -15,8 +15,6 @@ export const CoursesProvider: React.FC<CoursesProviderProps> = ({ children }) =>
     const [currentCourseId, setCurrentCourseId] = useState<number | undefined>(undefined)
     const [currentCourseData, setCurrentCourseData] = useState<EnrolledCourse>();
     const [currentUserData, setCurrentUserData] = useState<UserType>(userData);
-
-
 
     const addCourse = (course: Course) => dispatch({ type: 'ADD_COURSE', payload: course });
 
@@ -58,7 +56,6 @@ export const CoursesProvider: React.FC<CoursesProviderProps> = ({ children }) =>
 
     useEffect(() => {
         const studentData = convertUserToStudent(currentUserData);
-        console.log(studentData)
     
         const selectedCourses: SelectedCourse[] = [];
         const updatedEnrolledStudents = updateEnrolledStudents(enrolledStudentsState, selectedCourses, studentData);

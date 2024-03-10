@@ -1,18 +1,17 @@
-import { FormEvent, useContext, useEffect, useState } from "react";
-import "./Pages.scss";
-import { FormDataTypes } from "../types/types";
+import { FormEvent, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CoursesContext } from "../context/CoursesContext";
+import { FormDataTypes } from "../types/types";
+import "./Pages.scss";
 
 const Login: React.FC = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState<FormDataTypes>({ name: '', lastname: '', email: '' });
     
     const context = useContext(CoursesContext);
-
     if (!context) return <div>Error: Courses context is not available</div>;
     
-    const { updateUserData, currentUserData } = context;
+    const { updateUserData } = context;
     
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
@@ -27,9 +26,6 @@ const Login: React.FC = () => {
         updateUserData(formData)
         console.log(formData, "formData")
     }
-
-    console.log("currentUserData", currentUserData)
-    
 
     return (
         <div className="c-login">

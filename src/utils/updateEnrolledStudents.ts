@@ -9,7 +9,6 @@ import { EnrolledCourse, SelectedCourse, Student } from "../types/types";
  * @returns The updated list of enrolled courses with the student added where necessary.
  */
 export function updateEnrolledStudents(enrolledStudents: EnrolledCourse[], selectedCourses: SelectedCourse[], studentData: Student): EnrolledCourse[] {
-    console.log(studentData)
     selectedCourses.forEach(course => {
         addStudentToCourseIfNotEnrolled(enrolledStudents, course, studentData);
     });
@@ -23,12 +22,9 @@ export function updateEnrolledStudents(enrolledStudents: EnrolledCourse[], selec
 * @param student - The student to be added to the course.
 */
 function addStudentToCourseIfNotEnrolled(enrolledStudents: EnrolledCourse[], course: SelectedCourse, student: Student) {
-    console.log(student)
     const courseIndex = findCourseIndex(enrolledStudents, course.id);
 
-    if (courseIndex !== -1 && !isStudentEnrolled(enrolledStudents[courseIndex], student.id)) {
-        enrolledStudents[courseIndex].students.push(student);
-    }
+    if (courseIndex !== -1 && !isStudentEnrolled(enrolledStudents[courseIndex], student.id)) enrolledStudents[courseIndex].students.push(student);
 }
 
 /**

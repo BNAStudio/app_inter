@@ -59,6 +59,10 @@ export interface CoursesProviderProps {
     children: ReactNode;
 }
 
+export type AvatarProps = {
+    userImg: string;
+}
+
 
 export interface DetailCourseRowProps {
     courseInfo: Course;

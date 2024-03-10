@@ -1,12 +1,9 @@
-import { UserType } from '../../types/types';
-import { Avatar } from '../Avatar/Avatar';
-import './Profile.scss';
 import { useContext } from 'react';
 import { CoursesContext } from '../../context/CoursesContext';
+import { Avatar } from '../Avatar/Avatar';
+import './Profile.scss';
 
-
-
-const Profile = ({ userData }: { userData: UserType }) => {
+const Profile = () => {
 
     const context = useContext(CoursesContext);
     if (!context) return <div>Error: Courses context is not available</div>;

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import './SummaryCredits.scss'
 import { CoursesContext } from '../../context/CoursesContext';
 import { userData } from '../../mocks/mockUser';
+import './SummaryCredits.scss';
 
 const SummaryCredits = () => {
     const context = useContext(CoursesContext);
@@ -9,7 +9,6 @@ const SummaryCredits = () => {
     if (!context) return <div>Error: Courses context is not available</div>;
 
     const { enrolledCourses, calculateTotals } = context;
-
     const { totalCredits } = calculateTotals();
 
     const remainingCredits = userData.credits - totalCredits;

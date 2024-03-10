@@ -1,12 +1,11 @@
 import { useContext } from 'react';
-import DetailCourseRow from '../DetailCourseRow/DetailCourseRow'
 import { CoursesContext } from '../../context/CoursesContext';
+import DetailCourseRow from '../DetailCourseRow/DetailCourseRow'
 import { Course } from '../../types/types';
 import './SummaryCourseDetails.scss';
 
 const SummaryCourseDetails: React.FC = () => {
   const context = useContext(CoursesContext);
-
 
   if (!context) return <div>Error: Courses context is not available</div>;
 

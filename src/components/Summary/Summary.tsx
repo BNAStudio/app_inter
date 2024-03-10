@@ -1,9 +1,9 @@
-import './Summary.scss'
+import { useContext } from 'react'
+import { CoursesContext } from '../../context/CoursesContext'
 import SummaryCard from '../SummaryCard/SummaryCard'
 import SummaryCredits from '../SummaryCredits/SummaryCredits'
 import SummaryCourseDetails from '../SummaryCourseDetails/SummaryCourseDetails'
-import { useContext } from 'react'
-import { CoursesContext } from '../../context/CoursesContext'
+import './Summary.scss';
 
 const Summary = () => {
   const context = useContext(CoursesContext);
@@ -20,8 +20,7 @@ const Summary = () => {
           <div className='c-rows'>
             <SummaryCourseDetails />
           </div>
-        : 
-          <SummaryCard />
+        : <SummaryCard />
       }
       <SummaryCredits />
     </div>

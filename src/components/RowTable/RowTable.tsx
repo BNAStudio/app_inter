@@ -1,7 +1,7 @@
 
+import { RowTableProps } from "../../types/types";
 import { FaCheck } from "react-icons/fa";
 import './RowTable.scss'
-import { RowTableProps } from "../../types/types";
 
 const RowTable: React.FC<RowTableProps> = ({ courseInfo, onAddCourse }) => {
   return (

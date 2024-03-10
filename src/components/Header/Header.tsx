@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
+import { CoursesContext } from "../../context/CoursesContext";
 import { getFormattedDate } from "../../utils/utilDate";
 import { encodeMsg } from "../../mocks/encodeMsg";
 import './Header.scss';
-import { CoursesContext } from "../../context/CoursesContext";
 
 
 const Header = () => {

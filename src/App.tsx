@@ -1,10 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import './App.css';
+import { CoursesProvider } from './context/CoursesProvider';
 import Dashboard from './pages/Dashboard';
 import { Cart } from './pages/Cart';
-import { CoursesProvider } from './context/CoursesProvider';
 import Login from './pages/Login';
+import './App.css';
 
 function App() {
   return (

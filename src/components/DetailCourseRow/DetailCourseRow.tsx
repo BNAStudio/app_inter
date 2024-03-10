@@ -1,19 +1,16 @@
 
 import { useContext } from 'react';
-import { DetailCourseRowProps } from '../../types/types';
-import './DetailCourseRow.scss'
 import { CoursesContext } from '../../context/CoursesContext';
+import { DetailCourseRowProps } from '../../types/types';
+import './DetailCourseRow.scss';
 
 const DetailCourseRow: React.FC<DetailCourseRowProps> = ({ courseInfo }) => {
     const context = useContext(CoursesContext);
-
     if (!context) return <div>Error: Courses context is not available</div>;
 
     const { removeCourse, enrolledCourses } = context;
 
-    const handleRemoveCourse = () => {
-        removeCourse(courseInfo.id);
-    }
+    const handleRemoveCourse = () => removeCourse(courseInfo.id);
 
     const disableDelete = enrolledCourses.confirm;
 

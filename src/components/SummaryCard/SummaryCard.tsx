@@ -1,18 +1,16 @@
 import { useContext } from 'react';
-import { Course } from '../../types/types';
+import { CoursesContext } from '../../context/CoursesContext';
 import Amount from '../Amount/Amount'
 import TagCourse from '../TagCourse/TagCourse'
-import './SummaryCard.scss'
-import { CoursesContext } from '../../context/CoursesContext';
 import useCurrencyConverter from '../../hooks/useCurrencyConvert';
+import { Course } from '../../types/types';
+import './SummaryCard.scss';
 
 const SummaryCard = () => {
     const context = useContext(CoursesContext);
     const { convertTo } = useCurrencyConverter();
 
-    if (!context) {
-        return <div>Error: Courses context is not available</div>;
-    }
+    if (!context) return <div>Error: Courses context is not available</div>;
 
     const { enrolledCourses, calculateTotals } = context;
     const { totalAmount } = calculateTotals();

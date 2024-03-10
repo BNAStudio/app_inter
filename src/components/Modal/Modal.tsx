@@ -5,7 +5,6 @@ import './Modal.scss';
 
 const Modal = () => {
     const context = useContext(CoursesContext);
-
     if (!context) return <div>Error: Courses context is not available</div>;
 
     const { setShowModal, currentCourseData } = context;
@@ -13,7 +12,6 @@ const Modal = () => {
     const handleCloseModal = () => setShowModal(false);
 
     const currentCourse = coursesInfo.find(item => item.id === currentCourseData?.courseId);
-
 
     return (
         <div className='c-modal'>

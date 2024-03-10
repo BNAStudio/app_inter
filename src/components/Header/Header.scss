@@ -1,6 +1,7 @@
+@import "../../styles/index.scss";
+
 .c-info-user {
     width: 100%;
-    border: 1px solid red;
     height: 80px;
 
     display: flex;
@@ -11,10 +12,27 @@
 .c-badge {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     width: 200px;
-    border: 1px solid blue;
+    background: var(--dark);
     cursor: pointer;
+    height: 100%;
+    box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+.c-badge > button {
+    background: var(--dark);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    @include neumorphism_A;
 }
 .c-badge > button:active {
-    background-color: red;
+    @include neumorphism_B;
+    color: var(--contrast);
+}
+.c-badge > button.selected {
+    background: var(--primary-color); // Cambia esto según tus preferencias
+    @include neumorphism_B;
+    color: var(--contrast);
 }

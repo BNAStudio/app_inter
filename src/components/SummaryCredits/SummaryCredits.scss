@@ -1,21 +1,27 @@
+@import "../../styles/index.scss";
+
 .c-summary-credits {
     display: flex;
-    width: 66%;
     flex: 1;
 
-    border: 1px solid red;
-    height: max-content;
+    height: 80%;
     justify-content: center;
     align-items: center;
 
+    border-radius: 15px;
+    margin-right: 10px;
+
     flex-wrap: wrap;
     row-gap: 20px;
+    min-width: 300px;
+
+    background: var(--dark);
+    box-shadow: 0px 10px 15px 11px rgba(0, 0, 0, 0.5);
 }
 
 .c-info-credits, 
 .c-info-courses,
 .courses-title {
-    border: 1px solid blue;
     width: 100%;
     text-align: center;
     font-size: 0.8rem;

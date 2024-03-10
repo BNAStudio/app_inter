@@ -1,24 +1,27 @@
+@import "../../styles/index.scss";
+
 .c-summary {
     display: flex;
 
     width: 100%;
-    border: 1px solid red;
 
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
 
-    height: max-content;
+    height: 200px;
+    @include glass_effect();
 }
 
 .c-rows {
     padding: 10px;
-    border: 1px solid green;
-    height: 300px;
+    height: 200px;
 
     display: grid;
     align-items: center;
     align-content: center;
 
     row-gap: 10px;
+    min-width: 60%;
+    width: 450px;
 }

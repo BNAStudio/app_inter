@@ -52,6 +52,10 @@ button {
 
 .details {
 	grid-area: details;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .courses {

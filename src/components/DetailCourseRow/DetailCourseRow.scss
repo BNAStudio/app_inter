@@ -1,6 +1,10 @@
+@import "../../styles/index.scss";
+
 .c-details-row{
     display: flex;
     text-align: left;
+    border-bottom: 1px solid var(--light);
+    margin-bottom: 10px;
 }
 
 .c-course-name {
@@ -50,13 +54,16 @@
 }
 
 .btn-delete-course {
+    @include shiny_border(var(--light));
+    color: var(--contrast);
     width: 30px;
     height: 30px;
-    border: 1px solid green;
     border-radius: 50%;
     text-align: center;
 }
 .btn-delete-course:active {
-    border: 1px solid red;
+    @include shiny_border(var(--alert));
+    color: var(--alert);
     border-radius: 50%;
+    font-weight: bold;
 }

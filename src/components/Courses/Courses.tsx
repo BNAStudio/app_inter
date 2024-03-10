@@ -13,12 +13,12 @@ const Courses = () => {
     return <div>Error: Courses context is not available</div>;
   }
 
-  const { enrolledCourses, addCourse } = context;
+  const { enrolledCourses, addCourse, currentUserData } = context;
 
   const handleAddCourse = (courseId: number) => {
     const selectedCourse = coursesInfo.find(course => course.id === courseId);
     if (selectedCourse) {
-      addCourse({ ...selectedCourse, isSelected: true });
+      addCourse({ ...selectedCourse, isSelected: true,  userInfo: currentUserData});
     }
   };
 

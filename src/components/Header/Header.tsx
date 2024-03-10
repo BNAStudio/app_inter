@@ -1,12 +1,17 @@
-import { useState } from "react";
-import { userData } from "../../mocks/mockUser";
+import { useContext, useState } from "react";
 import { getFormattedDate } from "../../utils/utilDate";
 import { encodeMsg } from "../../mocks/encodeMsg";
 import './Header.scss';
+import { CoursesContext } from "../../context/CoursesContext";
 
 
 const Header = () => {
     const [selectedCurrency, setSelectedCurrency] = useState('USD');
+    
+    const context = useContext(CoursesContext);
+    if (!context) return <div>Error: Courses context is not available</div>;
+    
+    const { currentUserData } = context;
 
     const handleClick = (currency: string) => {
         console.log("can u resolve? ", encodeMsg);
@@ -16,7 +21,7 @@ const Header = () => {
 
     return (
         <div className='c-info-user'>
-            <p className='user-name'>Welcome {userData.name}!</p>
+            <p className='user-name'>Welcome {currentUserData.name}!</p>
             <p className='current-date'>{getFormattedDate()}</p>
             <div className='c-badge'>
                 <button

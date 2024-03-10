@@ -1,3 +1,4 @@
+
 import { enrolledStudents } from "../mocks/mockEnrollStudent";
 import { userData } from "../mocks/mockUser";
 import { CoursesAction, CoursesState } from "../types/types";
@@ -7,7 +8,8 @@ import { updateEnrolledStudents } from "../utils/updateEnrolledStudents";
 export const initialState: CoursesState = {
     courses: [
     ],
-    confirm: false
+    confirm: false,
+    userInfo: []
 };
 
 
@@ -17,6 +19,8 @@ export function coursesReducer(state: CoursesState, action: CoursesAction): Cour
             // Comprobar si ya se han seleccionado 3 cursos
             if (state.courses.length >= 3) return state;
 
+            console.log(action.payload)
+
             // Comprobar créditos totales y si el profesor ya está asignado
             const totalCredits = state.courses.reduce((acc, curr) => acc + curr.credits, 0);
             const hasSameTeacher = state.courses.some(course => course.teacher === action.payload.teacher);
@@ -24,7 +28,7 @@ export function coursesReducer(state: CoursesState, action: CoursesAction): Cour
             if (totalCredits + action.payload.credits > 9 || hasSameTeacher) return state;
 
             const newState = { ...state, courses: [...state.courses, action.payload] };
-            updateEnrolledStudents(enrolledStudents, newState.courses, userData);
+            updateEnrolledStudents(enrolledStudents, newState.courses, action.payload.userInfo as any);
             return newState;
 
         case 'CONFIRM_COURSES':

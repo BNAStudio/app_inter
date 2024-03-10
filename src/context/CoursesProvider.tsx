@@ -1,34 +1,28 @@
 import { useEffect, useReducer, useState } from "react";
 import { coursesReducer, initialState } from "../reducer/coursesReducer";
-import { Course, CoursesProviderProps, EnrolledCourse } from "../types/types";
+import { Course, CoursesProviderProps, EnrolledCourse, SelectedCourse, UserType } from "../types/types";
 import { CoursesContext } from "./CoursesContext";
 import { updateEnrolledStudents } from "../utils/updateEnrolledStudents";
 import { userData } from "../mocks/mockUser";
 import { enrolledStudents } from "../mocks/mockEnrollStudent";
+import { convertUserToStudent } from "../utils/convertToStuden";
 
 export const CoursesProvider: React.FC<CoursesProviderProps> = ({ children }) => {
-    // array de cursos del usuario
     const [enrolledCourses, dispatch] = useReducer(coursesReducer, initialState);
-    // array de cursos completo
     const [enrolledStudentsState, setEnrolledStudentsState] = useState(enrolledStudents);
-    // valida para mostrar detalles
     const [showDetails, setShowDetails] = useState<boolean | undefined>(undefined);
-    // renderiza el modal
     const [showModal, setShowModal] = useState<boolean | undefined>(false);
-    // obtiene el id del curso actual - TagCourse
     const [currentCourseId, setCurrentCourseId] = useState<number | undefined>(undefined)
-    // obtiene el 
     const [currentCourseData, setCurrentCourseData] = useState<EnrolledCourse>();
+    const [currentUserData, setCurrentUserData] = useState<UserType>(userData);
 
 
-    const addCourse = (course: Course) => {
-        dispatch({ type: 'ADD_COURSE', payload: course });
-    };
+
+    const addCourse = (course: Course) => dispatch({ type: 'ADD_COURSE', payload: course });
 
     const removeCourse = (courseId: number) => {
         dispatch({ type: 'REMOVE_COURSE', payload: courseId });
-
-        // Actualiza enrolledStudentsState
+        
         const updatedEnrolledStudents = enrolledStudentsState.map(enrolled => {
             if (enrolled.courseId === courseId) {
                 return {
@@ -49,22 +43,47 @@ export const CoursesProvider: React.FC<CoursesProviderProps> = ({ children }) =>
         return { totalCredits, totalAmount };
     };
 
+    const updateUserData =(newUserData: Partial<UserType>) => {
+        setCurrentUserData({
+            ...userData,
+            ...newUserData
+        });
+    };
+
     useEffect(() => {
-        // Actualizar currentCourseData cuando cambia currentCourseId o enrolledStudentsState
         const currentCourse = enrolledStudentsState.find(item => item.courseId === currentCourseId);
         setCurrentCourseData(currentCourse);
     }, [currentCourseId, enrolledStudentsState]);
 
 
     useEffect(() => {
-        // Asegurarse de que enrolledStudentsState se actualice cuando enrolledCourses.courses cambie
-        const updatedEnrolledStudents = updateEnrolledStudents(enrolledStudentsState, enrolledCourses.courses, userData);
+        const studentData = convertUserToStudent(currentUserData);
+        console.log(studentData)
+    
+        const selectedCourses: SelectedCourse[] = [];
+        const updatedEnrolledStudents = updateEnrolledStudents(enrolledStudentsState, selectedCourses, studentData);
+    
         setEnrolledStudentsState(updatedEnrolledStudents);
-    }, [enrolledCourses.courses]);
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentUserData]);
 
-    return (
-        <CoursesContext.Provider value={{ dispatch, enrolledCourses, enrolledStudentsState, addCourse, removeCourse, setShowDetails, showDetails, calculateTotals, showModal, setShowModal, setCurrentCourseId, currentCourseData }}>
-            {children}
-        </CoursesContext.Provider>
-    );
+    const valueProvider = { 
+        dispatch, 
+        enrolledCourses, 
+        enrolledStudentsState, 
+        addCourse, 
+        removeCourse, 
+        setShowDetails, 
+        showDetails, 
+        calculateTotals, 
+        showModal, 
+        setShowModal, 
+        setCurrentCourseId, 
+        currentCourseData,
+        currentUserData,
+        updateUserData
+    }
+
+    return <CoursesContext.Provider value={valueProvider}>{children}</CoursesContext.Provider>;
 };

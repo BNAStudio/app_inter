@@ -17,9 +17,9 @@ const BtnNav = () => {
   const isDisableBtn = enrolledCourses.courses.length === 0;
 
   return (
-    <div className="link-details" onClick={handleClick}>
+    <div className="link-details">
       <p className={'btn-details-text'}>{showDetails ? "Show details" : "Show summary"}</p>
-      <button className={isDisableBtn ? 'btn-details-disable': 'btn-deatils'} disabled={isDisableBtn} >
+      <button onClick={handleClick} className={isDisableBtn ? 'btn-details-disable': 'btn-deatils'} disabled={isDisableBtn} >
         <FaArrowCircleRight />
       </button>
     </div>

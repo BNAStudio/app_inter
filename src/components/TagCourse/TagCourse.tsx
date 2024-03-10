@@ -14,6 +14,7 @@ const TagCourse: React.FC<TagCourseProps> = ({ courseName, idCourse }) => {
   const enableModal = enrolledCourses.confirm;
 
   const handleClick = () => {
+    if(!enableModal) return
     setShowModal(true)
     setCurrentCourseId(idCourse)
   }

@@ -6,6 +6,7 @@ export type UserType = {
     lastname: string,
     img: string,
     nationality: string
+    email?: string;
 }
 
 export type AmountProps = {
@@ -20,11 +21,15 @@ export interface Course {
     credits: number;
     price: number;
     isSelected: boolean
+    userInfo?: UserType[] | UserType
+
 }
 
 export interface CoursesState {
     courses: Course[];
     confirm: boolean;
+    userInfo: UserType[]
+
 }
 
 export type CoursesAction =
@@ -41,11 +46,13 @@ export interface CoursesContextType {
     showDetails: boolean | undefined;
     calculateTotals: () => Totals;
     enrolledStudentsState: EnrolledCourse[];
-    dispatch: Dispatch<CoursesAction>; 
+    dispatch: Dispatch<CoursesAction>;
     showModal: boolean | undefined;
     setShowModal: Dispatch<SetStateAction<boolean | undefined>>;
     setCurrentCourseId: Dispatch<SetStateAction<number | undefined>>;
     currentCourseData: EnrolledCourse | undefined;
+    updateUserData: (userData: Partial<UserType>) => void;
+    currentUserData: UserType
 }
 
 export interface CoursesProviderProps {
@@ -98,4 +105,10 @@ export interface SelectedCourse {
     teacher: string;
     credits: number;
     price: number;
+}
+
+export interface FormDataTypes {
+    name: string;
+    lastname: string;
+    email: string;
 }

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import './BtnNav.scss'
 import { FaArrowCircleRight } from "react-icons/fa";
 import { CoursesContext } from '../../context/CoursesContext';
+import './BtnNav.scss'
 
 const BtnNav = () => {
   const context = useContext(CoursesContext);

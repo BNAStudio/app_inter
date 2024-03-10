@@ -1,7 +1,7 @@
 import { UserType } from '../../models/models';
 import { Avatar } from '../Avatar/Avatar';
-import './Profile.scss';
 import { user } from '../../mocks/mockUser';
+import './Profile.scss';
 
 
 

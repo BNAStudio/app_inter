@@ -63,7 +63,7 @@
 	background-position: center center;
 	background-repeat: no-repeat;
 	animation: bg-spin 5s linear infinite;
-	transition: hover 400ms;
+	transition: hover 10ms;
 	@keyframes bg-spin {
 		to {
 			--border-angle: 1turn;
@@ -132,7 +132,7 @@
 
 @mixin shiny_border($color){
 	transition: box-shadow 350ms;
-	border: 3px double $color;
+	border: 1px double $color;
 	box-shadow: var(--box-shadow-soft);
 	&:hover {
 		box-shadow: var(--box-shadow-hard);

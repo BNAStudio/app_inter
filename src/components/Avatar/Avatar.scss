@@ -3,11 +3,10 @@
     text-align: center;
 }
 
-
 .img-user {
     width: 120px;
     height: 120px;
     object-fit: cover;
-
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
     border-radius: 50%;
 }

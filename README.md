@@ -50,7 +50,7 @@ Si tienes preguntas o problemas con el proyecto, contáctame en [click aqui](mai
 
 ## Contribuidores
 
-- [BNAStudio](https://github.com/BNAStudio)
+- [Github de Daniel](https://github.com/BNAStudio)
 
 ## Recursos
 

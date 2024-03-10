@@ -1,15 +1,18 @@
 .c-table {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: max-content;
-    border: 1px solid purple;
-    transition: box-shadow 300ms ease-in-out; 
+    padding: 0 10px 5px 0;
+    transition: box-shadow 300ms ease-in-out;
+    border-bottom: 1px solid rgba($color: #ffffffcc, $alpha: 0.3);
 }
+
 .c-table:active {
     border: 1px solid var(--light);
 }
+
 .c-table:hover {
     box-shadow: 0px 0px 5px var(--light);
 }
@@ -17,10 +20,11 @@
 .btn-add-course {
     width: 30px;
     height: 30px;
-    border: 1px solid green;
+    border: 1px solid var(--gradient-mid-blue);
     border-radius: 50%;
     text-align: center;
 }
+
 .btn-add-course:active {
     border: 1px solid red;
     border-radius: 50%;
@@ -28,4 +32,8 @@
 
 .table-course-name {
     font-size: 1rem;
+}
+
+.invisible {
+    visibility: hidden;
 }

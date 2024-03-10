@@ -1,6 +1,8 @@
+@import '../../styles/index.scss';
+
 .c-tag {
+    @include shiny_border(var(--light));
     display: flex;
-    border: 1px solid red;
     width: 100%;
     border-radius: 10px;
     margin: 0 10px;

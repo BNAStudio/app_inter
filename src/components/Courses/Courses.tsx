@@ -1,5 +1,5 @@
 import RowTable from '../RowTable/RowTable'
-import { Course } from '../../models/models';
+import { Course } from '../../types/types';
 import { coursesInfo } from '../../mocks/mockCourses';
 import './Courses.scss'
 import { useContext } from 'react';

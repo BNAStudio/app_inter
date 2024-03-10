@@ -1,4 +1,4 @@
-import { AmountProps } from '../../models/models'
+import { AmountProps } from '../../types/types'
 import './Amount.scss'
 
 

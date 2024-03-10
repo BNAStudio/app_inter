@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import DetailCourseRow from '../DetailCourseRow/DetailCourseRow'
 import { CoursesContext } from '../../context/CoursesContext';
-import { Course } from '../../models/models';
+import { Course } from '../../types/types';
 import './SummaryCourseDetails.scss';
 
 const SummaryCourseDetails: React.FC = () => {

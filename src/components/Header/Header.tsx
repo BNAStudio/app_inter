@@ -1,20 +1,22 @@
 import { useState } from "react";
-import { user } from "../../mocks/mockUser";
+import { userData } from "../../mocks/mockUser";
 import { getFormattedDate } from "../../utils/utilDate";
-import './Header.scss'
+import { encodeMsg } from "../../mocks/encodeMsg";
+import './Header.scss';
 
 
 const Header = () => {
     const [selectedCurrency, setSelectedCurrency] = useState('USD');
 
     const handleClick = (currency: string) => {
-        console.log("from header click", currency);
+        console.log("can u resolve? ", encodeMsg);
+        setTimeout(() => { console.clear() }, 1500)
         setSelectedCurrency(currency);
     };
 
     return (
         <div className='c-info-user'>
-            <p className='user-name'>Welcome {user.name}!</p>
+            <p className='user-name'>Welcome {userData.name}!</p>
             <p className='current-date'>{getFormattedDate()}</p>
             <div className='c-badge'>
                 <button

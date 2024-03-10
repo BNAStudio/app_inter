@@ -1,6 +1,6 @@
 
 import { useContext } from 'react';
-import { DetailCourseRowProps } from '../../models/models';
+import { DetailCourseRowProps } from '../../types/types';
 import './DetailCourseRow.scss'
 import { CoursesContext } from '../../context/CoursesContext';
 

@@ -14,9 +14,6 @@
     flex-wrap: wrap;
     row-gap: 20px;
     min-width: 230px;
-
-    background: var(--dark);
-    box-shadow: 0px 10px 15px 11px rgba(0, 0, 0, 0.5);
 }
 
 .c-info-credits, 
@@ -24,15 +21,16 @@
 .courses-title {
     width: 100%;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .credits-title,
 .courses-title {
-    color: var(--complementary-hover);
+    // color: var(--dark-blue);
+    @include font_color--gradient(var(--purple-gradient))
 }
 .credits-title > span {
-    color: var(--alert);
+    color: var(--contrast);
 }
 
 .c-info-courses > h2 {

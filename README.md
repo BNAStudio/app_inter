@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+# Proyecto: Aplicación de lista de tareas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dashboard encargado de visualizar interface para inscripcion de cursos.
 
-## Available Scripts
+## Configuración y despliegue
 
-In the project directory, you can run:
+1. Asegúrate de tener Node.js y npm instalados en tu computadora.
+2. Descarga o clona el repositorio en tu computadora.
+3. En la carpeta del proyecto, ejecuta el comando `npm install` para instalar todas las dependencias.
+4. Ejecuta el comando `npm start` para iniciar la aplicación en modo desarrollo.
+5. Accede a la aplicación en modo desarrollo en tu navegador en la dirección: `http://localhost:3000/` o accede a la aplicacion desplegada [aqui](pendiente)
 
-### `npm start`
+## Librerias
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Este proyecto utiliza las siguientes librerías:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- <b>react-icons</b>: Libreria de iconos
+- <b>react-router-dom</b>: Enrutamiento
+- <b>sass</b>: Preprocesador
+- <b>typescript</b>: Tipado estricto
 
-### `npm test`
+## Uso de la aplicación
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Registrate (login)
+- Puedes elegir 3 cursos diferentes. No puedes elegir un cursos con el mismo profesor.
+- Para agregar cada curso dar click en el boton de + en cualquiera de las filas.
+- Puedes visualizar los detalles del cursos dando click en "Show summary".
+- El boton para eliminar cursos se encuentra habilitado hasta que se confirme los cursos elegidos.
+- Puedes acceder al boton de eliminar en la vista de "Show summary".
+- Una vez hayas confirmado los cursos inscritos, el boton de eliminar cursos desaparecera.
+- El boton de "Confirm courses", se habilita unicamente cuando se han elegido 3 cursos.
+- Una vez se ha confirmado los cursos, el boton de "Confirm courses" cambiara por "Go to Cart".
+- Una vez se han confirmado los cursos es posible visualizar los estudiantes inscritos dando click en caulquiera de los botones de Current courses.
+- Unicamente es posible visualizar los estudiantes inscritos en cada curso, cuando se han confirmado los cursos inscritos.
+- En la card de la derecha es posible visualizar los cursos incritos y los creditos restantes.
 
-### `npm run build`
+## Screenshots
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Desktop
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p align="center"><img src="./public/media/img/screenshot_app.PNG" width="700" ></p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Licencia
 
-### `npm run eject`
+Este proyecto está licenciado bajo la licencia MIT.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contacto
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Si tienes preguntas o problemas con el proyecto, contáctame en [click aqui](mailto:danielmark999@gmail.com)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Contribuidores
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [BNAStudio](https://github.com/BNAStudio)
 
-## Learn More
+## Recursos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Repositorio](https://github.com/BNAStudio/app_inter.git)
+- [Deploy](pendiente)

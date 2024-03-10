@@ -7,8 +7,8 @@ const BtnNav = () => {
   const context = useContext(CoursesContext);
   if (!context) return <div>Error: Courses context is not available</div>;
 
-  const { enrolledCourses, setShowDetails,  showDetails } = context;
-  
+  const { enrolledCourses, setShowDetails, showDetails } = context;
+
   const handleClick = () => setShowDetails(!showDetails)
 
   const isDisableBtn = enrolledCourses.courses.length === 0;
@@ -16,9 +16,11 @@ const BtnNav = () => {
   return (
     <div className="link-details">
       <p className={'btn-details-text'}>{showDetails ? "Show details" : "Show summary"}</p>
-      <button onClick={handleClick} className={isDisableBtn ? 'btn-details-disable': 'btn-deatils'} disabled={isDisableBtn} >
-        <FaArrowCircleRight />
-      </button>
+      <div className='c-btn'>
+        <button onClick={handleClick} className={isDisableBtn ? 'btn-details-disable' : 'btn-deatils'} disabled={isDisableBtn} >
+          <FaArrowCircleRight />
+        </button>
+      </div>
     </div>
   )
 }

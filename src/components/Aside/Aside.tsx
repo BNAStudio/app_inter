@@ -26,10 +26,13 @@ const Aside = () => {
       <Profile />
       <BtnNav />
 
-      {isConfirm
-        ? <Link className='link-text' to="/cart">Go to Cart</Link >
-        : <button onClick={handleConfirm} disabled={!askToConfirm || isConfirm} className={askToConfirm ? 'link-text' : 'link-text-disable'}>Confirm courses</button>
-      }
+      <div className='c-link-text'>
+        {isConfirm
+          ? <Link className='link-text' to="/cart">Go to Cart</Link >
+          :
+          <button onClick={handleConfirm} disabled={!askToConfirm || isConfirm} className={askToConfirm ? 'link-text' : 'link-text-disable'}>Confirm courses</button>
+        }
+      </div>
     </div>
   )
 }

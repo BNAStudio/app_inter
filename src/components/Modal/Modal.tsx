@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import './Modal.scss';
 import { CoursesContext } from '../../context/CoursesContext';
 import { coursesInfo } from '../../mocks/mockCourses';
+import './Modal.scss';
 
 const Modal = () => {
     const context = useContext(CoursesContext);
@@ -20,16 +20,20 @@ const Modal = () => {
             <div className='c-btn-close'>
                 <button className='btn-close' onClick={handleCloseModal}>X</button>
             </div>
-            <div className='course-name-title'>{currentCourse?.name}</div>
-            {
-                currentCourseData?.students.map(item => {
-                    return (
-                        <>
-                            <p>{item.name} {item.lastname}</p>
-                        </>
-                    )
-                })
-            }
+            <div className='modal-content'>
+                <div className='modal-course-name-title'>Enrolled estudents - {currentCourse?.name}</div>
+                <ol className='enrolled-students'>
+                    {
+                        currentCourseData?.students.map(item => {
+                            return (
+                                <>
+                                    <li>{item.name} {item.lastname}</li>
+                                </>
+                            )
+                        })
+                    }
+                </ol>
+            </div>
         </div>
     )
 }

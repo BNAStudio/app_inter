@@ -64,11 +64,23 @@ button {
 }
 
 .App {
-	width: 1200px;
+	max-width: 1200px;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center	;
 	padding: 30px;
 	background: rgb(6, 0, 14);
+}
+
+/* Estilo para tablets */
+@media screen and (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "aside"
+            "details"
+            "courses";
+    }
 }

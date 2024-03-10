@@ -8,7 +8,7 @@ Dashboard encargado de visualizar interface para inscripcion de cursos.
 2. Descarga o clona el repositorio en tu computadora.
 3. En la carpeta del proyecto, ejecuta el comando `npm install` para instalar todas las dependencias.
 4. Ejecuta el comando `npm start` para iniciar la aplicación en modo desarrollo.
-5. Accede a la aplicación en modo desarrollo en tu navegador en la dirección: `http://localhost:3000/` o accede a la aplicacion desplegada [aqui](pendiente)
+5. Accede a la aplicación en modo desarrollo en tu navegador en la dirección: `http://localhost:3000/` o accede a la aplicacion desplegada [aqui](https://app-inter.netlify.app)
 
 ## Librerias
 
@@ -55,4 +55,4 @@ Si tienes preguntas o problemas con el proyecto, contáctame en [click aqui](mai
 ## Recursos
 
 - [Repositorio](https://github.com/BNAStudio/app_inter.git)
-- [Deploy](pendiente)
+- [Deploy](https://app-inter.netlify.app)

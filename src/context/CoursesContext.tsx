@@ -1,4 +1,4 @@
 import { createContext } from "react";
-import { CoursesContextType } from "../models/models";
+import { CoursesContextType } from "../types/types";
 
 export const CoursesContext = createContext<CoursesContextType | null>(null);

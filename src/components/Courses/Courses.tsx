@@ -13,7 +13,7 @@ const Courses = () => {
     return <div>Error: Courses context is not available</div>;
   }
 
-  const { state, addCourse } = context;
+  const { enrolledCourses, addCourse } = context;
 
   const handleAddCourse = (courseId: number) => {
     const selectedCourse = coursesInfo.find(course => course.id === courseId);
@@ -24,7 +24,7 @@ const Courses = () => {
 
   // Fusiona el mock con el estado para reflejar los cursos seleccionados
   const mergedCourses = coursesInfo.map(course => {
-    const isSelected = state.courses.some(selectedCourse => selectedCourse.id === course.id);
+    const isSelected = enrolledCourses.courses.some(selectedCourse => selectedCourse.id === course.id);
     return { ...course, isSelected };
   });
 

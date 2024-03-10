@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ExchangeRates } from '../models/models';
+import { ExchangeRates } from '../types/types';
 
 const useCurrencyConverter = () => {
     const [exchangeRates, setExchangeRates] = useState<ExchangeRates>({ USD: 0, EUR: 1 });
@@ -8,11 +8,11 @@ const useCurrencyConverter = () => {
         fetch('https://api.frankfurter.app/latest?from=EUR&to=USD')
             .then(response => response.json())
             .then(data => {
-                setExchangeRates({ ...exchangeRates, USD: data.rates.USD });
+                setExchangeRates({ EUR: 1, USD: data.rates.USD });
             });
-    }, [exchangeRates]);
-
+    }, []);
     const convertTo = (amount: number, toCurrency: keyof ExchangeRates): number => {
+        if (toCurrency === 'EUR')return amount / exchangeRates.USD;
         return amount * exchangeRates[toCurrency];
     };
 

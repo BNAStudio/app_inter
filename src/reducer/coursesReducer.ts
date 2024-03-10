@@ -1,9 +1,13 @@
-import { CoursesAction, CoursesState } from "../models/models";
+import { enrolledStudents } from "../mocks/mockEnrollStudent";
+import { userData } from "../mocks/mockUser";
+import { CoursesAction, CoursesState } from "../types/types";
+import { updateEnrolledStudents } from "../utils/updateEnrolledStudents";
 
 
 export const initialState: CoursesState = {
     courses: [
-    ]
+    ],
+    confirm: false
 };
 
 
@@ -19,10 +23,21 @@ export function coursesReducer(state: CoursesState, action: CoursesAction): Cour
 
             if (totalCredits + action.payload.credits > 9 || hasSameTeacher) return state;
 
-            return { ...state, courses: [...state.courses, action.payload] };
+            const newState = { ...state, courses: [...state.courses, action.payload] };
+            updateEnrolledStudents(enrolledStudents, newState.courses, userData);
+            return newState;
+
+        case 'CONFIRM_COURSES':
+            return { ...state, confirm: true };
 
         case 'REMOVE_COURSE':
-            return { ...state, courses: state.courses.filter(course => course.id !== action.payload) };
+            const updatedCourses = state.courses.filter(course => course.id !== action.payload);
+            const updatedState = { ...state, courses: updatedCourses };
+
+            // Asume que updateEnrolledStudents maneja la lógica de eliminar estudiantes del curso eliminado
+            updateEnrolledStudents(enrolledStudents, updatedState.courses, userData);
+            return updatedState;
+
 
         default:
             return state;

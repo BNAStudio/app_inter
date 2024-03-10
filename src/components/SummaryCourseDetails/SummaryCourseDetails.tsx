@@ -10,11 +10,11 @@ const SummaryCourseDetails: React.FC = () => {
 
   if (!context) return <div>Error: Courses context is not available</div>;
 
-  const { state, removeCourse } = context;
+  const { enrolledCourses, removeCourse } = context;
 
   return (
     <div className='c-courses-details'>
-      {state.courses.map((course: Course) => (
+      {enrolledCourses.courses.map((course: Course) => (
         <DetailCourseRow
           key={course.id}
           courseInfo={course}

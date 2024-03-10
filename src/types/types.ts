@@ -24,19 +24,28 @@ export interface Course {
 
 export interface CoursesState {
     courses: Course[];
+    confirm: boolean;
 }
 
 export type CoursesAction =
     | { type: 'ADD_COURSE'; payload: Course }
-    | { type: 'REMOVE_COURSE'; payload: number };
+    | { type: 'REMOVE_COURSE'; payload: number }
+    | { type: 'CONFIRM_COURSES' };
 
+// Tipos para el value del provider 
 export interface CoursesContextType {
-    state: CoursesState;
+    enrolledCourses: CoursesState;
     addCourse: (course: Course) => void;
     removeCourse: (courseId: number) => void;
     setShowDetails: Dispatch<SetStateAction<boolean | undefined>>;
     showDetails: boolean | undefined;
     calculateTotals: () => Totals;
+    enrolledStudentsState: EnrolledCourse[];
+    dispatch: Dispatch<CoursesAction>; 
+    showModal: boolean | undefined;
+    setShowModal: Dispatch<SetStateAction<boolean | undefined>>;
+    setCurrentCourseId: Dispatch<SetStateAction<number | undefined>>;
+    currentCourseData: EnrolledCourse | undefined;
 }
 
 export interface CoursesProviderProps {
@@ -56,6 +65,7 @@ export interface RowTableProps {
 
 export interface TagCourseProps {
     courseName: string;
+    idCourse: number;
 }
 
 export interface Totals {
@@ -66,4 +76,26 @@ export interface Totals {
 export interface ExchangeRates {
     USD: number;
     EUR: number;
+}
+
+export interface Student {
+    id: number;
+    name: string;
+    lastname: string;
+    nationality: string;
+    credits: number;
+    img: string;
+}
+
+export interface EnrolledCourse {
+    courseId: number;
+    students: Student[];
+}
+
+export interface SelectedCourse {
+    id: number;
+    name: string;
+    teacher: string;
+    credits: number;
+    price: number;
 }

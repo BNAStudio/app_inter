@@ -10,11 +10,12 @@ const Summary = () => {
 
   if (!context) return <div>Error: Courses context is not available</div>;
 
-  const { showDetails } = context;
+  const { showDetails, enrolledCourses } = context;
+  const isEmpty = enrolledCourses.courses.length === 0;
 
   return (
     <div className='c-summary'>
-      {showDetails
+      {(showDetails && !isEmpty)
         ? 
           <div className='c-rows'>
             <SummaryCourseDetails />

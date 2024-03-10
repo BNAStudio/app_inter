@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Course } from '../../models/models';
+import { Course } from '../../types/types';
 import Amount from '../Amount/Amount'
 import TagCourse from '../TagCourse/TagCourse'
 import './SummaryCard.scss'
@@ -8,26 +8,29 @@ import useCurrencyConverter from '../../hooks/useCurrencyConvert';
 
 const SummaryCard = () => {
     const context = useContext(CoursesContext);
+    const { convertTo } = useCurrencyConverter();
 
     if (!context) {
         return <div>Error: Courses context is not available</div>;
     }
 
-    const { state, calculateTotals } = context;
+    const { enrolledCourses, calculateTotals } = context;
     const { totalAmount } = calculateTotals();
 
+    const totalAmountEUR = convertTo(totalAmount, 'USD');
 
     return (
         <div className='c-summary-card'>
             <div className='c-amount'>
                 <Amount badge={"USD"} amount={totalAmount}/>
-                <Amount badge={"EUR"} amount={totalAmount}/>
+                <Amount badge={"EUR"} amount={Math.trunc(totalAmountEUR)}/>
             </div>
             <div className='c-current-courses'>
                 <h1 className='current-courses-title'>Current courses</h1>
+                
                 <div className='c-tags'>
-                    {state.courses.map((course: Course) => (
-                        <TagCourse key={course.id} courseName={course.name} />
+                    {enrolledCourses.courses.map((course: Course) => (
+                        <TagCourse key={course.id} courseName={course.name} idCourse={course.id}/>
                     ))}
                 </div>
             </div>

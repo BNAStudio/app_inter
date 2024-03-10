@@ -22,3 +22,10 @@
     color: var(--contrast);
     @include neumorphism_B;
 }
+.link-text-disable {
+    text-decoration: none;
+    color: var(--light-dark);
+    padding: 10px 20px;
+    border-radius: 15px;
+    @include neumorphism_B;
+}

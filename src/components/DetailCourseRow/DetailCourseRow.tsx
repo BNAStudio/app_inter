@@ -9,11 +9,13 @@ const DetailCourseRow: React.FC<DetailCourseRowProps> = ({ courseInfo }) => {
 
     if (!context) return <div>Error: Courses context is not available</div>;
 
-    const { removeCourse } = context;
+    const { removeCourse, enrolledCourses } = context;
 
     const handleRemoveCourse = () => {
         removeCourse(courseInfo.id);
     }
+
+    const disableDelete = enrolledCourses.confirm;
 
     return (
         <div className='c-details-row'>
@@ -39,7 +41,7 @@ const DetailCourseRow: React.FC<DetailCourseRowProps> = ({ courseInfo }) => {
                 </div>
             </div>
 
-            <button className='btn-delete-course' onClick={handleRemoveCourse}>X</button>
+            {!disableDelete && <button className='btn-delete-course' onClick={handleRemoveCourse}>X</button>}
         </div>
     );
 };

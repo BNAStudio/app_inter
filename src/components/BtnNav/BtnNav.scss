@@ -28,6 +28,19 @@
     justify-content: center;
     align-items: center;
 }
+.btn-details-disable {
+    @include neumorphism_B;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: var(--gradient-mid-purple);
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .btn-deatils:active {
     @include neumorphism_B;
